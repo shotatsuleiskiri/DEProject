@@ -18,17 +18,18 @@ from myFramework.utils.readYaml import ReadYaml
 # test = toStaging_full(testread.path, testread.key)
 # sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
 # utils.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
+# utils.fillstaging(sourceDF,"DBStaging","dvdrental",test.getDestTbaleName())
 
 
 # incremental 
 
 testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/incremental.yaml", 'public.payment')
 test = toStaging_incremental(testread.path, testread.key)
-sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-05-15", "2007-05-16")
-# utils.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
+sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-02-10", "2007-05-16")
+utils.fillstaging(sourceDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName())
 
-print(sourceDF)
+# print(sourceDF)
 
-print(test.getDestDBName())
-print(test.getDestSchema())
-print(test.getDestTbaleName())
+# print(f'"{test.getDestDBName()}"')
+# print(f'"{test.getDestSchema()}"')
+# print(test.getDestTbaleName())
