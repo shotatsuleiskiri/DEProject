@@ -1,0 +1,8 @@
+public.customer:
+ SourceTableName: customer
+  SourceSourceDBName: dvdrental
+  SourceSourceSchema: public
+  TableType: SCD
+  DestDBName: DBStaging
+  DestTableName: store
+  DestSchema: dvdrental

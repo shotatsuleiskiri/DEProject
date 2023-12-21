@@ -1,0 +1,89 @@
+public.store:
+  SourceTableName: store
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: store
+  DestSchema: dvdrental
+
+public.category:
+  SourceTableName: category
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: category
+  DestSchema: dvdrental
+
+public.language:
+  SourceTableName: language
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: language
+  DestSchema: dvdrental
+
+public.address:
+  SourceTableName: address
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: address
+  DestSchema: dvdrental
+
+public.city:
+  SourceTableName: city
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: city
+  DestSchema: dvdrental
+
+public.country:
+  SourceTableName: country
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: country
+  DestSchema: dvdrental
+
+public.film:
+  SourceTableName: film
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: film
+  DestSchema: dvdrental
+
+public.actor:
+  SourceTableName: actor
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: actor
+  DestSchema: dvdrental
+
+public.staff:
+  SourceTableName: staff
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: staff
+  DestSchema: dvdrental
+
+public.inventory:
+  SourceTableName: inventory
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: FULL
+  DestDBName: DBStaging
+  DestTableName: inventory
+  DestSchema: dvdrental

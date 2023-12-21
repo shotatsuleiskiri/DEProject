@@ -1,0 +1,22 @@
+public.rental:
+  SourceTableName: rental
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: INCREMENTAL
+  DestDBName: DBStaging
+  DestTableName: rental
+  DestSchema: dvdrental
+  FilterColumn: rental_date
+  
+
+public.payment:
+  SourceTableName: payment
+  SourceDBName: dvdrental
+  SourceSchema: public
+  TableType: INCREMENTAL
+  DestDBName: DBStaging
+  DestTableName: payment
+  DestSchema: dvdrental
+  FilterColumn: payment_date
+
+  
