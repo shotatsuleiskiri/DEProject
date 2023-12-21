@@ -1,25 +1,34 @@
 import myFramework.utils.utils as utils
 from sqltostaging.initial.toStaging import ToStaging as toStaging_initial
-from sqltostaging.incremental.toStaging import ToStaging as toStaging_incremental
 from sqltostaging.full.toStaging import ToStaging as toStaging_full
-
-
+from sqltostaging.incremental.toStaging import ToStaging as toStaging_incremental
 from myFramework.utils.readYaml import ReadYaml
-
-
-testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/full/full.yaml", 'public.category')
 
 
 
 # initial
-test = toStaging_initial("dvdrental", "public")
-tbname_Df = utils.getTbaleList(test.dbname,test.schema)['tablename']
-for tbname in tbname_Df:    
-    utils.fillstaging(utils.getDF(test.dbname, test.schema,tbname),"DBStaging","dvdrental")
+# test = toStaging_initial(testread.path, testread.key)
+# tbname_Df = utils.getTbaleList(test.getSourceDBName(),test.getSourceSchema())
+# for tbname in tbname_Df:    
+#     utils.fillstaging(utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema()),test.getDestDBName(),test.getDestSchema())
    
    
 # full load
-test = toStaging_full(testread.path, testread.key)    
-utils.fillstaging(utils.getDF(test.getDBName(), test.getTableName(),test.getSchema()),"DBStaging","dvdrental",test.getTableName())
+# testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/full.yaml", 'public.category')
+# test = toStaging_full(testread.path, testread.key)
+# sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
+# utils.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
 
 
+# incremental 
+
+testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/incremental.yaml", 'public.payment')
+test = toStaging_incremental(testread.path, testread.key)
+sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-05-15", "2007-05-16")
+# utils.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
+
+print(sourceDF)
+
+print(test.getDestDBName())
+print(test.getDestSchema())
+print(test.getDestTbaleName())

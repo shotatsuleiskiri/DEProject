@@ -15,23 +15,26 @@ class ReadYaml:
             yaml_data = yaml.safe_load(file)
         return yaml_data[self.key]
     
-    def getTableName(self ):
-        return self.__getYaml()['TableName']
+    def getTSourceTableName(self ):
+        return self.__getYaml()['SourceTableName']
     
-    def getDBName(self ):
-        return self.__getYaml()['DBName']
+    def getSourceDBName(self ):
+        return self.__getYaml()['SourceDBName']
     
-    def getSchema(self ):
-        return self.__getYaml()['Schema']
+    def getSourceSchema(self ):
+        return self.__getYaml()['SourceSchema']
     
     def getTableType(self ):
         return self.__getYaml()['TableType']
     
+    def getDestTbaleName(self ):
+        return self.__getYaml()['DestTableName']
     
-testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/full/full.yaml", 'public.category')
-
-
-# print(testread.getTableName())
-# print(testread.getDBName())
-# print(testread.getSchema())
-# print(testread.getTableType())
+    def getDestDBName(self ):
+        return self.__getYaml()['DestDBName']
+    
+    def getDestSchema(self ):
+        return self.__getYaml()['DestSchema']
+    
+    def getfilterColumn(self ):
+        return self.__getYaml()['FilterColumn']

@@ -1,11 +1,7 @@
-import myFramework.source.posgresql.connect as conn
-import myFramework.utils
+from myFramework.utils.readYaml import ReadYaml
 
-import pandas as pd
-
-
-class ToStaging:
+class ToStaging(ReadYaml):
     
-    def __init__(self, dbname, schema):
-        self.dbname = dbname
-        self.schema = schema
+    def __init__(self, path, key):
+        self.key = key
+        self.path = path
