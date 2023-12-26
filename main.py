@@ -14,21 +14,21 @@ from myFramework.utils.readYaml import ReadYaml
    
    
 # full load
-# testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/full.yaml", 'public.category')
+# testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/tostaging/dvdrental/full.yaml", 'public.category')
 # test = toStaging_full(testread.path, testread.key)
 # sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
-# utils.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
+# test.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
 
 
 # incremental 
 
-testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/incremental.yaml", 'public.payment')
+testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/tostaging/dvdrental/incremental.yaml", 'public.payment')
 test = toStaging_incremental(testread.path, testread.key)
-sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-05-15", "2007-05-16")
-# utils.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
+sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-02-10", "2007-05-16")
+test.fillstaging(sourceDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}', test.getDestTbaleName())
 
-print(sourceDF)
-
-print(test.getDestDBName())
-print(test.getDestSchema())
-print(test.getDestTbaleName())
+# print(sourceDF)
+#
+# print(test.getDestDBName())
+# print(test.getDestSchema())
+# print(test.getDestTbaleName())

@@ -10,3 +10,8 @@ class ToStaging(ReadYaml):
     def getDF(self, source_dbname, tablename, schema):
         return pd.read_sql(f"select * from {schema}.{tablename}"
                 ,conn.getConnection(source_dbname))
+
+    def fillstaging(self, df, dst_dbname, schema, tablename):
+        df.to_sql(tablename, conn.getConnection(dst_dbname)
+                , schema=f"{schema}", if_exists='replace', index=False)
+
