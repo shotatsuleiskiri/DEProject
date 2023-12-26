@@ -14,18 +14,18 @@ from myFramework.utils.readYaml import ReadYaml
    
    
 # full load
-# testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/tostaging/dvdrental/full.yaml", 'public.category')
-# test = toStaging_full(testread.path, testread.key)
-# sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
-# test.fillstaging(sourceDF,test.getDestDBName(),test.getDestSchema,test.getDestTbaleName())
+testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/tostaging/dvdrental/full.yaml", 'public.category')
+test = toStaging_full(testread.path, testread.key)
+sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
+test.fillstaging(sourceDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}', test.getDestTbaleName())
 
 
 # incremental 
-
-testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/tostaging/dvdrental/incremental.yaml", 'public.payment')
-test = toStaging_incremental(testread.path, testread.key)
-sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-02-10", "2007-05-16")
-test.fillstaging(sourceDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}', test.getDestTbaleName())
+#
+# testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/tostaging/dvdrental/incremental.yaml", 'public.payment')
+# test = toStaging_incremental(testread.path, testread.key)
+# sourceDF = test.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2007-02-10", "2007-05-16")
+# test.fillstaging(sourceDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}', test.getDestTbaleName())
 
 # print(sourceDF)
 #
