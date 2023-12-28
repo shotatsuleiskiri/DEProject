@@ -15,7 +15,7 @@ class ToStaging(ReadYaml, getDF, fillStaging):
         self.path = path
     
     def getDF(self, source_dbname, tablename,schema,filterColumn, dateFrom, dateTo):
-         return pd.read_sql(f"select * from {schema}.{tablename} where {filterColumn} >= '{dateFrom}' and {filterColumn} < '{dateTo}' "
+         return pd.read_sql(f"select T.*, DATE(CURRENT_TIMESTAMP) insertion_date from {schema}.{tablename} T where {filterColumn} >= '{dateFrom}' and {filterColumn} < '{dateTo}' "
                 ,conn.getConnection(source_dbname))
     
     def fillstaging(self, df, dst_dbname, schema, tablename):

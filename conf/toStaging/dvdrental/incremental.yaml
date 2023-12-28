@@ -19,4 +19,34 @@ public.payment:
   DestSchema: dvdrental
   FilterColumn: payment_date
 
-  
+
+public.film_actor:
+  SourceTableName: customer
+  SourceSourceDBName: dvdrental
+  SourceSourceSchema: public
+  TableType: INCREMENTAL
+  DestDBName: DBStaging
+  DestTableName: store
+  DestSchema: dvdrental
+  FilterColumn: last_update
+
+public.film_category:
+  SourceTableName: film_category
+  SourceSourceDBName: dvdrental
+  SourceSourceSchema: public
+  TableType: INCREMENTAL
+  DestDBName: DBStaging
+  DestTableName: store
+  DestSchema: dvdrental
+  FilterColumn: last_update
+
+public.customer:
+  SourceTableName: customer
+  SourceSourceDBName: dvdrental
+  SourceSourceSchema: public
+  TableType: INCREMENTAL
+  DestDBName: DBStaging
+  DestTableName: store
+  DestSchema: dvdrental
+  FilterColumn: last_update
+

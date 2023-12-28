@@ -11,7 +11,7 @@ class ToStaging(ReadYaml,getDF, fillStaging):
         self.path = path
 
     def getDF(self, source_dbname, tablename, schema):
-        return pd.read_sql(f"select * from {schema}.{tablename}"
+        return pd.read_sql(f"select T.*,  DATE(CURRENT_TIMESTAMP) insertion_date from {schema}.{tablename} T"
                 ,conn.getConnection(source_dbname))
     
     def fillstaging(self, df, dst_dbname, schema, tablename):
