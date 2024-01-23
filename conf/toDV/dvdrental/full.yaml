@@ -1,0 +1,9 @@
+dvdrental.store:
+  SourceTableName: store
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: store
+  DestSchema: dvdrental
+  Code: 1
