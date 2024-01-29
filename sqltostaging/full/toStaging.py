@@ -1,10 +1,8 @@
 from myFramework.utils.readYaml import ReadYaml
 import myFramework.source.posgresql.connect as conn
-# from myFramework.utils.getDF import getDF
-from myFramework.utils.fiilStaging import fillStaging
 import pandas as pd
 
-class ToStaging(ReadYaml, fillStaging):
+class ToStaging(ReadYaml):
     
     def __init__(self, path, key):
         self.key = key
@@ -16,6 +14,6 @@ class ToStaging(ReadYaml, fillStaging):
     #     return pd.read_sql(f"select T.*,  DATE(CURRENT_TIMESTAMP) insertion_date from {schema}.{tablename} T"
     #             ,conn.getConnection(source_dbname))
     
-    def fillstaging(self, df, dst_dbname, schema, tablename):
-        df.to_sql(tablename, conn.getConnection(dst_dbname)
-                , schema=f"{schema}", if_exists='replace', index=False)
+    # def fillstaging(self, df, dst_dbname, schema, tablename):
+    #     df.to_sql(tablename, conn.getConnection(dst_dbname)
+    #             , schema=f"{schema}", if_exists='replace', index=False)

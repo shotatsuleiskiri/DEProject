@@ -1,11 +1,14 @@
 import yaml
 import os
-
 class ReadYaml:
+
+
 
     def __init__(self, path, key):
         self.path = path
         self.key = key
+        self.tableType = self.getTableType()
+        
     
     # private mthod
     def __getYaml (self):
@@ -38,3 +41,10 @@ class ReadYaml:
     
     def getfilterColumn(self ):
         return self.__getYaml()['FilterColumn']
+    
+    def getCode(self):
+        return self.__getYaml()['Code']
+    
+    def getNaturalKey(self):
+        return self.__getYaml()['NaturalKey']
+

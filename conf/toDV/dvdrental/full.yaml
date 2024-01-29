@@ -6,4 +6,5 @@ dvdrental.store:
   DestDBName: DBDV
   DestTableName: store
   DestSchema: dvdrental
+  NaturalKey: store_id
   Code: 1

@@ -1,14 +1,14 @@
-import myFramework.source.posgresql.connect as conn
-import pandas as pd
+# import myFramework.source.posgresql.connect as conn
+# import pandas as pd
 
 
 
-class fillStaging:
+# class fillStaging:
 
-    def __init__(self) -> None:
-        pass
+#     def __init__(self) -> None:
+#         pass
 
 
-    def fillStaging():
-        pass
+#     def fillStaging():
+#         pass
    

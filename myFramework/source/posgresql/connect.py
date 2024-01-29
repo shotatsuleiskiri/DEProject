@@ -6,5 +6,5 @@ def getConnection(dbname):
     password='1604'
     host ='localhost'
     port='5432'
-    return create_engine(f'postgresql://{user}:{password}@{host}:{port}/{dbname}')   
+    return create_engine(f'postgresql://{user}:{password}@{host}:{port}/{dbname}')  
 
