@@ -1,0 +1,11 @@
+dvdrental.rental:
+  SourceTableName: rental
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: INCREMENTAL
+  DestDBName: DBDV
+  DestTableName: rental
+  DestSchema: dvdrental
+  FilterColumn: rental_date
+  NaturalKey: rental_id
+  Code: 1

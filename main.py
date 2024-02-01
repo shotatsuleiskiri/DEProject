@@ -4,20 +4,29 @@ from sqltostaging.full.toStaging import ToStaging as toStaging_full
 from sqltostaging.incremental.toStaging import ToStaging as toStaging_incremental
 from managment.cleanstaging.cleanStaging import CleanStaging 
 from myFramework.utils.readYaml import ReadYaml
-
 from stagingtodv.nodatemanaged.toDV import ToDV
-
-
 
 
 # ---------------------------DV----------------
 
+
+# Full
 # create ReadYaml object
 
-testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/toDV/dvdrental/full.yaml", 'dvdrental.store')
+# testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/toDV/dvdrental/full.yaml", 'dvdrental.store')
+# test = ToDV(testread.path, testread.key)
+# sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
+# ganaretedDF = utils.generateSurogateKey(sourceDF,test.getCode(), test.getNaturalKey() )
+# utils.fillPosgres(ganaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName())
 
+
+
+# incremental
+# create ReadYaml object
+
+testread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/toDV/dvdrental/incremental.yaml", 'dvdrental.rental')
 test = ToDV(testread.path, testread.key)
-sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
+sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2006-02-14", "2006-02-15")
 ganaretedDF = utils.generateSurogateKey(sourceDF,test.getCode(), test.getNaturalKey() )
 utils.fillPosgres(ganaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName())
 
@@ -48,6 +57,4 @@ utils.fillPosgres(ganaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}
 # cleantestread = ReadYaml("/Users/ramazkapanadze/DEProject/DEProject/conf/tostaging/dvdrental/full.yaml", 'public.category')
 # t = CleanStaging()
 # t.cleanStaging('DBStaging', 'dvdrental', 'category', 2023, 12, 28)
-
-
 
