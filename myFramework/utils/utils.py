@@ -50,3 +50,6 @@ def fillPosgres( df, dst_dbname, schema, tablename):
 def toSCD2(srcDF: pd.DataFrame, targetDF: pd.DataFrame):
       final_df = scd2(srcDF, targetDF)
       return final_df
+
+
+# aaaaagit
