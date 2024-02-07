@@ -1,0 +1,47 @@
+dvdrental.customer:
+  SourceTableName: customer
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: customer
+  DestSchema: dvdrental
+  FilterColumn: last_update
+  NaturalKey: customer_id
+  Code: 1
+
+dvdrental.inventory:
+  SourceTableName: inventory
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: inventory
+  DestSchema: dvdrental
+  NaturalKey: inventory_id
+  FilterColumn: last_update
+  Code: 1
+
+dvdrental.address:
+  SourceTableName: address
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: address
+  DestSchema: dvdrental
+  NaturalKey: address_id
+  FilterColumn: last_update
+  Code: 1
+
+dvdrental.staff:
+  SourceTableName: staff
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: staff
+  DestSchema: dvdrental
+  NaturalKey: staff_id
+  FilterColumn: last_update
+  Code: 1

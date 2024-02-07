@@ -1,0 +1,66 @@
+dvdrental.store:
+  SourceTableName: store
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: store
+  DestSchema: dvdrental
+  NaturalKey: store_id
+  Code: 1
+
+dvdrental.film:
+  SourceTableName: film
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: film
+  DestSchema: dvdrental
+  NaturalKey: film_id
+  Code: 1
+
+dvdrental.country:
+  SourceTableName: country
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: country
+  DestSchema: dvdrental
+  NaturalKey: country_id
+  Code: 1
+
+dvdrental.actor:
+  SourceTableName: actor
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: actor
+  DestSchema: dvdrental
+  NaturalKey: actor_id
+  Code: 1
+
+dvdrental.city:
+  SourceTableName: city
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: city
+  DestSchema: dvdrental
+  NaturalKey: city_id
+  Code: 1
+
+
+dvdrental.language:
+  SourceTableName: language
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  DestDBName: DBDV
+  DestTableName: language
+  DestSchema: dvdrental
+  NaturalKey: language_id
+  Code: 1

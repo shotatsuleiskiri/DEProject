@@ -22,8 +22,8 @@ public.payment:
 
 public.film_actor:
   SourceTableName: customer
-  SourceSourceDBName: dvdrental
-  SourceSourceSchema: public
+  SourceDBName: dvdrental
+  SourceSchema: public
   TableType: INCREMENTAL
   DestDBName: DBStaging
   DestTableName: store
@@ -32,8 +32,8 @@ public.film_actor:
 
 public.film_category:
   SourceTableName: film_category
-  SourceSourceDBName: dvdrental
-  SourceSourceSchema: public
+  SourceDBName: dvdrental
+  SourceSchema: public
   TableType: INCREMENTAL
   DestDBName: DBStaging
   DestTableName: store
@@ -42,8 +42,8 @@ public.film_category:
 
 public.customer:
   SourceTableName: customer
-  SourceSourceDBName: dvdrental
-  SourceSourceSchema: public
+  SourceDBName: dvdrental
+  SourceSchema: public
   TableType: INCREMENTAL
   DestDBName: DBStaging
   DestTableName: store
