@@ -1,0 +1,29 @@
+dvdrental.film_actor:
+  SourceTableName: film_actor
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: LINK
+  InsertionType: append
+  DestDBName: DBDV
+  DestTableName: film_actor
+  DestSchema: dvdrental
+  FilterColumn: last_update
+  Surogatekey:
+    film_id
+    actor_id
+  Code: 1
+
+dvdrental.film_category:
+  SourceTableName: film_category
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: LINK
+  InsertionType: append
+  DestDBName: DBDV
+  DestTableName: film_category
+  DestSchema: dvdrental
+  FilterColumn: last_update
+  Surogatekey:
+    film_id
+    category_id
+  Code: 1

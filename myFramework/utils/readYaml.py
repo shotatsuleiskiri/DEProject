@@ -45,6 +45,15 @@ class ReadYaml:
     def getCode(self):
         return self.__getYaml()['Code']
     
+    def getSurogateKey(self):
+        return self.__getYaml()['SurogateKey']
+
     def getNaturalKey(self):
         return self.__getYaml()['NaturalKey']
+
+    def getInsertionType(self):
+        return self.__getYaml()['InsertionType']
+
+    def getRenameColumn(self):
+        return self.__getYaml()['RenameColumn']
 

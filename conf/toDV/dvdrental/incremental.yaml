@@ -3,11 +3,18 @@ dvdrental.rental:
   SourceDBName: DBStaging
   SourceSchema: dvdrental
   TableType: INCREMENTAL
+  InsertionType: append
   DestDBName: DBDV
   DestTableName: rental
   DestSchema: dvdrental
   FilterColumn: rental_date
-  NaturalKey: rental_id
+  NaturalKey:
+    rental_id
+  SurogateKey:
+    inventory_id
+    customer_id
+    staff_id
+    rental_id
   Code: 1
 
 dvdrental.payment:
@@ -15,33 +22,16 @@ dvdrental.payment:
   SourceDBName: DBStaging
   SourceSchema: dvdrental
   TableType: INCREMENTAL
+  InsertionType: append
   DestDBName: DBDV
   DestTableName: payment
   DestSchema: dvdrental
   FilterColumn: payment_date
-  NaturalKey: payment_id
-  Code: 1
-
-dvdrental.film_actor:
-  SourceTableName: film_actor
-  SourceDBName: DBStaging
-  SourceSchema: dvdrental
-  TableType: INCREMENTAL
-  DestDBName: DBDV
-  DestTableName: film_actor
-  DestSchema: dvdrental
-  FilterColumn: last_update
-  NaturalKey: actor_id
-  Code: 1
-
-dvdrental.film_category:
-  SourceTableName: film_category
-  SourceDBName: DBStaging
-  SourceSchema: dvdrental
-  TableType: INCREMENTAL
-  DestDBName: DBDV
-  DestTableName: film_category
-  DestSchema: dvdrental
-  FilterColumn: last_update
-  NaturalKey: category_id
+  NaturalKey:
+    payment_id
+  SurogateKey:
+    payment_id
+    customer_id
+    staff_id
+    rental_id
   Code: 1
