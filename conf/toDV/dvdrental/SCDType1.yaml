@@ -1,15 +1,3 @@
-dvdrental.store:
-  SourceTableName: store
-  SourceDBName: DBStaging
-  SourceSchema: dvdrental
-  TableType: FULL
-  InsertionType: replace
-  DestDBName: DBDV
-  DestTableName: store
-  DestSchema: dvdrental
-  NaturalKey: store_id
-  Code: 1
-
 dvdrental.film:
   SourceTableName: film
   SourceDBName: DBStaging
@@ -19,7 +7,11 @@ dvdrental.film:
   DestDBName: DBDV
   DestTableName: film
   DestSchema: dvdrental
-  NaturalKey: film_id
+  NaturalKey:
+    film_id
+  SurogateKey:
+    film_id
+    language_id
   Code: 1
 
 dvdrental.country:
@@ -31,7 +23,10 @@ dvdrental.country:
   DestDBName: DBDV
   DestTableName: country
   DestSchema: dvdrental
-  NaturalKey: country_id
+  NaturalKey:
+    country_id
+  SurogateKey:
+    country_id
   Code: 1
 
 dvdrental.actor:
@@ -43,7 +38,10 @@ dvdrental.actor:
   DestDBName: DBDV
   DestTableName: actor
   DestSchema: dvdrental
-  NaturalKey: actor_id
+  NaturalKey:
+    actor_id
+  SurogateKey:
+    actor_id
   Code: 1
 
 dvdrental.city:
@@ -55,19 +53,11 @@ dvdrental.city:
   DestDBName: DBDV
   DestTableName: city
   DestSchema: dvdrental
-  NaturalKey: city_id
-  Code: 1
-
-dvdrental.film:
-  SourceTableName: film
-  SourceDBName: DBStaging
-  SourceSchema: dvdrental
-  TableType: FULL
-  InsertionType: replace
-  DestDBName: DBDV
-  DestTableName: film
-  DestSchema: dvdrental
-  NaturalKey: film_id
+  NaturalKey:
+    city_id
+  SurogateKey:
+    city_id
+    country_id
   Code: 1
 
 dvdrental.language:
@@ -79,5 +69,23 @@ dvdrental.language:
   DestDBName: DBDV
   DestTableName: language
   DestSchema: dvdrental
-  NaturalKey: language_id
+  NaturalKey:
+    language_id
+  SurogateKey:
+    language_id
+  Code: 1
+
+dvdrental.category:
+  SourceTableName: category
+  SourceDBName: DBStaging
+  SourceSchema: dvdrental
+  TableType: FULL
+  InsertionType: replace
+  DestDBName: DBDV
+  DestTableName: category
+  DestSchema: dvdrental
+  NaturalKey:
+    category_id
+  SurogateKey:
+    category_id
   Code: 1

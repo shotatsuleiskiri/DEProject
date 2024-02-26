@@ -58,12 +58,11 @@ def generateSurogateKey(df, code, SurogatekeyList, dest_col_list):
       newdf = newdf.reindex(dest_col_list, axis=1)
       return newdf
 
-def GenerateNaturalKey(df, Naturalkey,dest_col_list):
+def GenerateNaturalKey(df, Naturalkey):
     newdf = pd.DataFrame(df)
     NaturalValue = newdf[Naturalkey]
     newdf = newdf.assign(tmpkey = pd.Series(NaturalValue).values)
     newdf.rename(columns={'tmpkey':f'source_{Naturalkey}'}, inplace=True)
-    newdf = newdf.reindex(dest_col_list, axis=1)
     return newdf
 
 

@@ -8,7 +8,7 @@ dvdrental.film_actor:
   DestTableName: film_actor
   DestSchema: dvdrental
   FilterColumn: last_update
-  Surogatekey:
+  SurogateKey:
     film_id
     actor_id
   Code: 1
@@ -23,7 +23,7 @@ dvdrental.film_category:
   DestTableName: film_category
   DestSchema: dvdrental
   FilterColumn: last_update
-  Surogatekey:
+  SurogateKey:
     film_id
     category_id
   Code: 1
