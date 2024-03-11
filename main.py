@@ -23,13 +23,13 @@ from stagingtodv.SCDType2.toDV import ToDV
 # Full - SCDType1
 # create ReadYaml object
 
-testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/toDV/dvdrental/SCDType1.yaml", 'dvdrental.category')
-test = ToDV(testread.path, testread.key)
-sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
-dest_col_list = list(utils.getDF(test.getDestDBName(), test.getDestTbaleName(),test.getDestSchema()).columns)
-generatenaturalkey = utils.GenerateNaturalKey(sourceDF, test.getNaturalKey())
-ganaretedDF = utils.generateSurogateKey(generatenaturalkey,test.getCode(), list(test.getSurogateKey().split(" ")), dest_col_list)
-utils.fillPosgres(ganaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName(), test.getInsertionType())
+# testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/toDV/dvdrental/SCDType1.yaml", 'dvdrental.category')
+# test = ToDV(testread.path, testread.key)
+# sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema())
+# dest_col_list = list(utils.getDF(test.getDestDBName(), test.getDestTbaleName(),test.getDestSchema()).columns)
+# generatenaturalkey = utils.GenerateNaturalKey(sourceDF, test.getNaturalKey())
+# ganaretedDF = utils.generateSurogateKey(generatenaturalkey,test.getCode(), list(test.getSurogateKey().split(" ")), dest_col_list)
+# utils.fillPosgres(ganaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName(), test.getInsertionType())
 
 
 # incremental
@@ -46,17 +46,17 @@ utils.fillPosgres(ganaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}
 #
 
 # SCDType2
+testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/toDV/dvdrental/SCDType2.yaml", 'dvdrental.store')
+test = ToDV(testread.path, testread.key)
+sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2003-05-26", "2014-02-28").drop("last_update",  axis=1)
+targetDF = utils.getDF(test.getDestDBName(), test.getDestTbaleName(),test.getDestSchema())
+SCD_DF = utils.scdtest(sourceDF,targetDF, list(test.getSurogateKey().split(" ")), test.getNaturalKey())
+dest_col_list = list(utils.getDF(test.getDestDBName(), test.getDestTbaleName(),test.getDestSchema()).columns)
+genaretedDF = utils.generateSurogateKey(SCD_DF, test.getCode(), list(test.getSurogateKey().split(" ")),dest_col_list)
+# print(genaretedDF)
+utils.fillPosgres(genaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName(), test.getInsertionType())
 
-# testread = ReadYaml("/Users/mariammakharadze/PycharmProjects/DEProject/conf/toDV/dvdrental/SCDType2.yaml", 'dvdrental.staff')
-# test = ToDV(testread.path, testread.key)
-# sourceDF = utils.getDF(test.getSourceDBName(), test.getTSourceTableName(),test.getSourceSchema(),test.getfilterColumn(), "2000-05-26", "2024-05-26")
-# targetDF = utils.getDF(test.getDestDBName(), test.getDestTbaleName(),test.getDestSchema())
-# print(utils.toSCD2(sourceDF, targetDF))
-# newSourceDF = utils.toSCD2(sourceDF, targetDF,test.getRenameColumn())
-# print(test.getRenameColumn())
-# genaretedDF = utils.generateSurogateKey(newSourceDF,test.getCode(), list(test.getSurogatekey().split(" ")))
-# generatenaturalkey = utils.GenerateNaturalKey(genaretedDF, test.getNaturalKey(), list(targetDF).columns)
-# utils.fillPosgres(genaretedDF,f'{test.getDestDBName()}',f'{test.getDestSchema()}',test.getDestTbaleName())
+# ,test.getfilterColumn(), "2013-05-26", "2005-05-26"
 
 
 
